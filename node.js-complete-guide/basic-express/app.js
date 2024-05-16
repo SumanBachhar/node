@@ -2,15 +2,20 @@ const port = 5100;
 
 const express = require("express");
 
+const bodyParser = require("body-parser");
+
 const app = express();
 
-app.use("/add-product", (req, res, next) => {
-  console.log("In anther middleware");
-  res.send("<h1>This is the add prpoduct page</h1>");
-});
-app.use("/", (req, res, next) => {
-  console.log("In anther middleware");
-  res.send("<h1>Hello from express</h1>");
+const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use("/admin", adminRoutes);
+app.use(shopRoutes);
+
+app.use((req, res, next) => {
+  res.status(404).send("<h1>404 page Not Found,</h1>");
 });
 
 app.listen(port);
