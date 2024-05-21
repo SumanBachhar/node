@@ -35,3 +35,18 @@ console.log(hobby1, hobbi2);
 setTimeout(() => {
   console.log("Timer is done");
 }, 5000);
+
+// Hoistiong
+myFunc();
+
+function myFunc() {
+  console.log("js");
+}
+// 2nd
+react = "library";
+console.log(react);
+var react;
+// 3rd
+var a;
+// a = 5;
+console.log(a);
